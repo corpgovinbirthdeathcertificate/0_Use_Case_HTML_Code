@@ -1,153 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
+  <meta charset="UTF-8">
   <title>Birth Certificate</title>
   <style>
-    :root{
-      --page-max: 800px;
-    }
-
-    /* Base */
-    html, body { height: 100%; }
     body {
-      margin: 0;
-      background: #f5f5f5;
-      font-family: "Times New Roman", serif;
-      line-height: 1.4;
-      color: #000;
+      font-family: 'Times New Roman', serif;
+      margin: 40px;
+      background: #f9f9f9;
     }
-
-    /* Card */
     .certificate {
-      box-sizing: border-box;
-      width: min(100%, var(--page-max));
-      margin: min(24px, 4vw) auto;
-      background: #fff;
       border: 2px solid #000;
-      padding: clamp(16px, 4vw, 30px);
+      padding: 30px;
+      background: #fff;
+      max-width: 800px;
+      margin: auto;
     }
-
-    /* Header with left/right logos */
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: clamp(8px, 3vw, 16px);
-      margin-bottom: clamp(8px, 2.4vw, 12px);
-      flex-wrap: wrap; /* allow small screens to stack */
-    }
-    .header .logo {
-      width: clamp(48px, 12vw, 90px);
-      height: auto;
-      max-width: 100%;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-    .header .title {
-      flex: 1 1 240px;
-      min-width: 0; /* prevent overflow from long text */
+    h1, h2 {
       text-align: center;
-      padding: 0 6px;
+      margin: 0;
     }
-
-    /* Typography with fluid sizes */
-    h1, h2 { margin: 0; line-height: 1.2; }
-    h1 { font-size: clamp(20px, 6vw, 32px); }
-    h2 { font-size: clamp(14px, 3.6vw, 20px); font-weight: 600; }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #000;
-      margin: clamp(8px, 2.8vw, 14px) 0;
-    }
-
-    .section { margin-top: clamp(12px, 3.2vw, 20px); }
-
-    /* Two-part rows that wrap nicely on phones */
-    .section p {
-      margin: 6px 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: clamp(14px, 3.8vw, 16px);
+    .section {
+      margin-top: 20px;
     }
     .label {
       font-weight: bold;
-      flex: 0 0 auto;
     }
     .info {
-      flex: 1 1 160px;
-      min-width: 120px;
+      margin-left: 10px;
     }
-
-    /* Small phones: stack header title under logos */
-    @media (max-width: 480px) {
-      .header .title { order: 3; width: 100%; }
-      .certificate { border-width: 1.5px; }
+    .logos {
+      text-align: center;
+      margin-bottom: 20px;
     }
-
-    /* Print friendly */
-    @media print {
-      body { background: #fff; margin: 0; }
-      .certificate {
-        margin: 0;
-        width: 100%;
-        max-width: none;
-        border-width: 1px;
-        box-shadow: none;
-        padding: 20px;
-      }
-      .header { flex-wrap: nowrap; }
-      h1 { font-size: 28px; }
-      h2 { font-size: 18px; }
+    .logos img {
+      margin: 0 10px;
+      width: 100px;
     }
   </style>
 </head>
 <body>
   <div class="certificate">
-    <!-- Top header with two logos -->
-    <div class="header">
-      <img class="logo" src="logo1.png" alt="Seal of Gujarat" />
-      <div class="title">
-        <h1>Government of India</h1>
-        <h2>Department of Public Health and Preventive Medicine</h2>
-      </div>
-      <img class="logo" src="logo2.png" alt="Birth and Death" />
+    <div class="logos">
+      <img src="logo1.png" alt="Logo 2">
     </div>
-    <hr />
+    <h1>Government of Gujarat</h1>
+    <h2>Department of Health and Family Welfare</h2>
+    <hr>
 
     <div class="section">
-      <p><span class="label">District:</span><span class="info">INDIA</span></p>
-      <p><span class="label">Sub-District:</span><span class="info">INDIA</span></p>
+      <p><span class="label">District:</span><span class="info">SURAT</span></p>
+      <p><span class="label">Sub-District:</span><span class="info">SURAT KATARGAM</span></p>
       <p><span class="label">Registration Unit:</span><span class="info">CORPORATION WARD 6</span></p>
     </div>
 
     <div class="section">
-      <p><span class="label">Child Name:</span><span class="info">TEMPLATE</span></p>
+      <p><span class="label">Child Name:</span><span class="info">SUNIL VRAJLAL JADAV</span></p>
       <p><span class="label">Sex:</span><span class="info">MALE</span></p>
-      <p><span class="label">Date of Birth:</span><span class="info">01 JAN, 1990</span></p>
-      <p><span class="label">Place of Birth:</span><span class="info">INDIA</span></p>
+      <p><span class="label">Date of Birth:</span><span class="info">TUESDAY, 03 AUGUST, 1993</span></p>
+      <p><span class="label">Place of Birth:</span><span class="info">ASHAKTASHRAM HOSPITAL, SURAT</span></p>
     </div>
 
     <div class="section">
-      <p><span class="label">Father's Name:</span><span class="info">TEMPLATE FATHER</span></p>
-      <p><span class="label">Mother's Name:</span><span class="info">TEMPLATE MOTHER</span></p>
+      <p><span class="label">Father's Name:</span><span class="info">JADAV VRAJLAL JERAMBHAI</span></p>
+      <p><span class="label">Mother's Name:</span><span class="info">JADAV VANITABEN VRAJLAL</span></p>
     </div>
 
     <div class="section">
-      <p><span class="label">Permanent Address:</span><span class="info">TEMPLATE PERMANENT ADDRESS</span></p>
-      <p><span class="label">Address at Birth:</span><span class="info">TEMPLATE ADDRESS</span></p>
+      <p><span class="label">Permanent Address:</span><span class="info">31, SHIVNAGAR SOCIETY - 1, KATARGAM SINGANPORE ROAD, BH ASHOK NAGAR, SURAT, GUJARAT - 395004</span></p>
+      <p><span class="label">Address at Birth:</span><span class="info">31, SHIVNAGAR SOCIETY - 1, KATARGAM SINGANPORE ROAD, BH ASHOK NAGAR, SURAT, GUJARAT - 395004</span></p>
     </div>
 
     <div class="section">
-      <p><span class="label">Registration No.:</span><span class="info">REG NO</span></p>
-      <p><span class="label">Certificate No.:</span><span class="info">CER NO</span></p>
-      <p><span class="label">Date of Registration:</span><span class="info">DATE OF REG</span></p>
+      <p><span class="label">Registration No.:</span><span class="info">CZ-1993-7397</span></p>
+      <p><span class="label">Certificate No.:</span><span class="info">0651411</span></p>
+      <p><span class="label">Date of Registration:</span><span class="info">10/08/1993</span></p>
     </div>
   </div>
 </body>
