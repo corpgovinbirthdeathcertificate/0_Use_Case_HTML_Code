@@ -2,20 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
   <title>Birth Certificate</title>
   <style>
-    body {
-      font-family: "Times New Roman", serif;
-      margin: 40px;
-      background: #f9f9f9;
+    :root{
+      --page-max: 800px;
     }
+
+    /* Base */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      font-family: "Times New Roman", serif;
+      line-height: 1.4;
+      color: #000;
+    }
+
+    /* Card */
     .certificate {
-      border: 2px solid #000;
-      padding: 30px;
+      box-sizing: border-box;
+      width: min(100%, var(--page-max));
+      margin: min(24px, 4vw) auto;
       background: #fff;
-      max-width: 800px;
-      margin: auto;
+      border: 2px solid #000;
+      padding: clamp(16px, 4vw, 30px);
     }
 
     /* Header with left/right logos */
@@ -23,38 +37,74 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
-      gap: 16px;
+      gap: clamp(8px, 3vw, 16px);
+      margin-bottom: clamp(8px, 2.4vw, 12px);
+      flex-wrap: wrap; /* allow small screens to stack */
     }
     .header .logo {
-      width: 90px;
+      width: clamp(48px, 12vw, 90px);
       height: auto;
+      max-width: 100%;
       object-fit: contain;
+      flex: 0 0 auto;
     }
     .header .title {
-      flex: 1;
+      flex: 1 1 240px;
+      min-width: 0; /* prevent overflow from long text */
       text-align: center;
-      padding: 0 10px;
+      padding: 0 6px;
     }
 
-    h1, h2 {
-      text-align: center;
-      margin: 0;
+    /* Typography with fluid sizes */
+    h1, h2 { margin: 0; line-height: 1.2; }
+    h1 { font-size: clamp(20px, 6vw, 32px); }
+    h2 { font-size: clamp(14px, 3.6vw, 20px); font-weight: 600; }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #000;
+      margin: clamp(8px, 2.8vw, 14px) 0;
     }
-    .section {
-      margin-top: 20px;
+
+    .section { margin-top: clamp(12px, 3.2vw, 20px); }
+
+    /* Two-part rows that wrap nicely on phones */
+    .section p {
+      margin: 6px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: clamp(14px, 3.8vw, 16px);
     }
     .label {
       font-weight: bold;
+      flex: 0 0 auto;
     }
     .info {
-      margin-left: 10px;
+      flex: 1 1 160px;
+      min-width: 120px;
     }
 
-    /* Print */
+    /* Small phones: stack header title under logos */
+    @media (max-width: 480px) {
+      .header .title { order: 3; width: 100%; }
+      .certificate { border-width: 1.5px; }
+    }
+
+    /* Print friendly */
     @media print {
       body { background: #fff; margin: 0; }
-      .certificate { margin: 0; border-width: 1px; }
+      .certificate {
+        margin: 0;
+        width: 100%;
+        max-width: none;
+        border-width: 1px;
+        box-shadow: none;
+        padding: 20px;
+      }
+      .header { flex-wrap: nowrap; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 18px; }
     }
   </style>
 </head>
@@ -62,7 +112,6 @@
   <div class="certificate">
     <!-- Top header with two logos -->
     <div class="header">
-      <!-- If your file name has spaces, encode them as %20 -->
       <img class="logo" src="logo1.png" alt="Seal of Gujarat" />
       <div class="title">
         <h1>Government of India</h1>
